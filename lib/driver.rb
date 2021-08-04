@@ -1,8 +1,8 @@
 require_relative "binary_search_tree.rb"
 
 class Driver
-  def initialize
-    arr = Array.new(15) { rand(1..100) }
+  def initialize(arr = [])
+    arr = Array.new(15) { rand(1..100) } if arr === []
     @tree = Tree.new(arr)
   end
 

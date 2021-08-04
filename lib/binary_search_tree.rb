@@ -20,21 +20,19 @@ class Tree
 
   def level_order(return_nodes = false, root = @root)
     return if root === nil
-    queue = []
     ordered_arr = []
-
+    queue = []
     queue.append(root)
     
     while queue.length > 0
-
       node = queue.shift
+      
       ordered_arr << node.data if return_nodes == false
       ordered_arr << node if return_nodes == true
 
       queue.append(node.left_child) if node.left_child != nil
       queue.append(node.right_child) if node.right_child != nil
     end
-    
     return ordered_arr
   end
 
@@ -66,6 +64,7 @@ class Tree
     elsif value > node.data
       node.right_child = delete(value, node.right_child)
     else
+      
       # if node has one or zero children
       return node.right_child if node.left_child.nil?
       return node.left_child if node.right_child.nil?
